@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: sentiment_analyze  # 替换为你的服务名
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.10  # 指定 Python 版本

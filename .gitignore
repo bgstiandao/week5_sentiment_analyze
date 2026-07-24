@@ -1,0 +1,44 @@
+# 虚拟环境（一定不要上传）
+.venv/
+venv/
+ENV/
+
+# Python 缓存（自动生成，不需要）
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 编译后的文件
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# IDE 配置（每个人的配置不同，不需要同步）
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 数据文件（数据集较大，不需要上传；但可以保留小样本，这里先忽略大的）
+*.zip
+*.tar.gz
+*.7z
+# 如果你只放了一个小的 MNIST 数据，可以忽略这一行，但建议默认忽略 data 文件夹
+
+
+# 训练的模型文件（权重较大，GitHub 有 100MB 限制，这里忽略，但 README 里说明）
+custom_finetuned_from_89/
+my_sentiment_model/
+sentiment_results/
+custom_finetuned_model/
+# 但是不忽略（强制追踪）!custom_finetuned_model
+
+
+# 日志和临时图片（可选，如果不想上传日志可以忽略）
+*.log
+*.png
+*.jpg
+*.jpeg
