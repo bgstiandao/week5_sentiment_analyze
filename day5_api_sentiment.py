@@ -22,7 +22,7 @@ print("🤖 加载情感分析模型...")
 # 为方便部署，使用一个非常轻量的、专为情感分析优化的官方模型
 classifier = pipeline(
     "sentiment-analysis",
-    model="distilbert-base-uncased-finetuned-sst-2-english"
+    model="Intel/distilbert-base-uncased-finetuned-sst-2-english-int8-static-inc"
 )
 
 print("✅ 模型加载成功！")
