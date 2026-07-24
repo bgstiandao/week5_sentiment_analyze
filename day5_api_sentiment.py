@@ -13,11 +13,16 @@ print("🤖 加载情感分析模型...")
 # )
 
 #加载hugging face上的上传的模型
+# 使用 8-bit 量化 + CPU 加载，内存从 ~500MB 暴降到 ~150MB
 classifier = pipeline(
     "sentiment-analysis",
-    model="bgs-123/custom_finetuned_model",
+    model="bgs-123/custom_finetuned_model",  # 你的模型
     tokenizer="bgs-123/custom_finetuned_model",
-    model_kwargs={"low_cpu_mem_usage": True}
+    device_map="cpu",                         # 强制使用 CPU（Render 免费实例没显卡）
+    model_kwargs={
+        "load_in_8bit": True,                 # 🔥 关键：开启 8-bit 量化
+        "low_cpu_mem_usage": True             # 加载时进一步省内存
+    }
 )
 
 print("✅ 模型加载成功！")
