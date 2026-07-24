@@ -6,11 +6,19 @@ import uvicorn
 
 # ========== 1. 加载微调好的模型 ==========
 print("🤖 加载情感分析模型...")
+# classifier = pipeline(
+#     "sentiment-analysis",
+#     model="./custom_finetuned_model",
+#     tokenizer="./custom_finetuned_model"
+# )
+
+#加载hugging face上的上传的模型
 classifier = pipeline(
     "sentiment-analysis",
-    model="./custom_finetuned_model",
-    tokenizer="./custom_finetuned_model"
+    model="bgs-123/custom_finetuned_model",
+    tokenizer="bgs-123/custom_finetuned_model"
 )
+
 print("✅ 模型加载成功！")
 
 
