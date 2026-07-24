@@ -22,7 +22,12 @@ print("🤖 加载情感分析模型...")
 # 为方便部署，使用一个非常轻量的、专为情感分析优化的官方模型
 classifier = pipeline(
     "sentiment-analysis",
-    model="Intel/distilbert-base-uncased-finetuned-sst-2-english-int8-static-inc"
+    model="bgs-123/custom_finetuned_model",
+    tokenizer="bgs-123/custom_finetuned_model",
+    model_kwargs={
+        "id2label": {0: "NEGATIVE", 1: "POSITIVE"},  # 根据你的实际标签调整
+        "low_cpu_mem_usage": True
+    }
 )
 
 print("✅ 模型加载成功！")
